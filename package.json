@@ -1,0 +1,11 @@
+{
+    "name": "C:\Users\steven\Documents\GitHub\webspecs\SVG1.1-ARIA",
+    "version": "0.0.1",
+    "description": "SVG 1.1 default implicit ARIA semantics",
+    "scripts": {
+        "test": "node ./node_modules/webspec/bin/webspec.js check --tap"
+    },
+    "devDependencies": {
+        "webspec":      "*"
+    }
+}
