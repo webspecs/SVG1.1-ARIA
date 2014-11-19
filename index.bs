@@ -1,24 +1,419 @@
 <h1>SVG 1.1 default implicit ARIA semantics</h1>
 
 <pre class='metadata'>
-Shortname: C:\Users\steven\Documents\GitHub\webspecs\SVG1.1-ARIA
+Shortname: SVG1.1-ARIA
 Group: WebSpecs
-Abstract: This specification is plain and simple wicked sweet.
+Abstract: This specification defines the web developer (author) rules (conformance requirements) for the use of [[!wai-aria]] attributes on [[!SVG11]] elements. It also defines the requirements for Conformance Checking tools.
 </pre>
-
-<h2 id='intro'>
-Introduction</h2>
-
-    Call me Ishmael. The sky above the port was the color of television, tuned to a dead channel. It
-    was a bright cold day in April, and the clocks were striking thirteen. It was the best of times,
-    it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the
-    epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season
-    of Darkness, it was the spring of hope, it was the winter of despair. Stately, plump Buck
-    Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay
-    crossed.
-
-    One summer afternoon Mrs. Oedipa Maas came home from a Tupperware party whose hostess had put
-    perhaps too much kirsch in the fondue to find that she, Oedipa, had been named executor, or she
-    supposed executrix, of the estate of one Pierce Inverarity, a California real estate mogul who
-    had once lost two million dollars in his spare time but still had assets numerous and tangled
-    enough to make the job of sorting it all out more than honorary.
+<h2 id="rules-wd">Rules of ARIA use in SVG1.1 for web developers</h2>
+	<p>The following table defines the implicit native semantics and corresponding default <a href="http://www.w3.org/TR/wai-aria/host_languages#implicit_semantics">implicit ARIA semantics</a> that apply to <a href="http://www.w3.org/TR/SVG/eltindex.html">SVG 1.1 elements</a>. Each language feature (element) in a cell in the first   column implies the ARIA semantics (role, states, and/or properties) given in the cell in the second column of the same row. The third  column defines restrictions as to what WAI-ARIA semantic (role, state, or property) may or may not apply. </p>
+	<p>Documents must not use any <a href="http://www.w3.org/TR/wai-aria-1.1/#dfn-role">role</a> values with elements in the following table other than those listed  for that element in the second column unless allowed by the restrictions defined in the third column.</p>
+	<table id="struct-table-aria-implicit">
+	<caption>
+	default implicit ARIA semantics and role restrictions
+	</caption>
+	  <thead>
+		<tr>
+		  <th>Language feature</th>
+		  <th>Default implied ARIA semantics</th>
+		  <th>Restrictions</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/linking.html#AElement">a</a>&rsquo;</td>
+		  <td>link role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#AltGlyphElement">altGlyph</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#AltGlyphDefElement">altGlyphDef</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>'<a href="http://www.w3.org/TR/SVG/text.html#AltGlyphItemElement">altGlyphItem</a>'</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/animate.html#AnimateElement">animate</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/animate.html#AnimateColorElement">animateColor</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/animate.html#AnimateMotionElement">animateMotion</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/animate.html#AnimateTransformElement">animateTransform</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be appplied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#CircleElement">circle</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/masking.html#ClipPathElement">clipPath</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/color.html#ColorProfileElement">color-profile</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/interact.html#CursorElement">cursor</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#DefsElement">defs</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#DescElement">desc</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#EllipseElement">ellipse</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feBlendElement">feBlend</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feColorMatrixElement">feColorMatrix</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feComponentTransferElement">feComponentTransfer</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feCompositeElement">feComposite</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feConvolveMatrixElement">feConvolveMatrix</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feDiffuseLightingElement">feDiffuseLighting</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feDisplacementMapElement">feDisplacementMap</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feDistantLightElement">feDistantLight</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feFloodElement">feFlood</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feFuncAElement">feFuncA</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feFuncBElement">feFuncB</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feFuncGElement">feFuncG</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feFuncRElement">feFuncR</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feGaussianBlurElement">feGaussianBlur</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feImageElement">feImage</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feMergeElement">feMerge</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feMergeNodeElement">feMergeNode</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feMorphologyElement">feMorphology</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feOffsetElementt">feOffset</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#fePointLightElement">fePointLight</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feSpecularLightingElement">feSpecularLighting</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feSpotLightElement">feSpotLight</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feTileElement">feTile</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#feTurbulenceElement">feTurbulence</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/filters.html#FilterElement">filter</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#FontElement">font</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceElement">font-face</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceFormatElement">font-face-format</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceNameElement">font-face-name</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceSrcElement">font-face-src</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#FontFaceURIElement">font-face-uri</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/extend.html#ForeignObjectElement">foreignObject</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-GElement">g</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#GlyphElement">glyph</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#GlyphRefElement">glyphRef</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#ImageElement">image</a>&rsquo;</td>
+		  <td>img role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#LineElement">line</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/pservers.html#LinearGradientElement">linearGradient</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/painting.html#MarkerElement">marker</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/masking.html#MaskElement">mask</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/metadata.html#MetadataElement">metadata</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#MissingGlyphElement">missing-glyph</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/animate.html#MPathElement">mpath</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/paths.html#PathElement">path</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/pservers.html#PatternElement">pattern</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#PolygonElement">polygon</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#PolylineElement">polyline</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/pservers.html#RadialGradientElement">radialGradient</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#RectElement">rect</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/script.html#ScriptElement">script</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/animate.html#SetElement">set</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/pservers.html#StopElement">stop</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/styling.html#StyleElement">style</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#SVGElement">svg</a>&rsquo;</td>
+		  <td>group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#SwitchElement">switch</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#SymbolElement">symbol</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#TextElement">text</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#TextPathElement">textPath</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#TitleElement">title</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#TRefElement">tref</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/text.html#TextElement">tspan</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/struct.html#UseElement">use</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/linking.html#ViewElement">view</a>&rsquo;</td>
+		  <td>presentation role provided no associated &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-TitleElement">title</a>&rsquo; element, &lsquo;<a href="https://svgwg.org/svg2-draft/single-page.html#struct-DescElement">desc</a>&rsquo; element, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-label">aria-label</a>&rsquo; attribute, &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-labelledby">aria-labelledby</a>&rsquo; attribute, or &lsquo;<a href="http://www.w3.org/TR/wai-aria-1.1/states_and_properties#aria-describedby">aria-describedby</a>&rsquo; attribute; otherwise, group role</td>
+		  <td>no restrictions</td>
+		</tr>
+		<tr>
+		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/fonts.html#VKernElement">vkern</a>&rsquo;</td>
+		  <td>none</td>
+		  <td>no role may be applied</td>
+		</tr>
+	  </tbody>
+	</table>
