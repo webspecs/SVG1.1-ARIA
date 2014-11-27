@@ -1,4 +1,4 @@
-<h1>SVG 1.1 default implicit ARIA semantics</h1>
+<h1>Web developer rules for use of ARIA attributes on SVG1.1 elements</h1>
 
 <pre class='metadata'>
 Shortname: SVG1.1-ARIA
