@@ -5,7 +5,7 @@ Shortname: SVG1.1-ARIA
 Group: WebSpecs
 Abstract: This specification defines the web developer (author) rules (conformance requirements) for the use of [[!wai-aria]] attributes on [[!SVG11]] elements. It also defines the requirements for Conformance Checking tools.
 </pre>
-<div class="advertisement">
+<div class="advisement">
 <p>This specification <strong>only defines</strong> web developer conformance requirements. i.e. which [[!wai-aria]] roles, states and properties a web developer may use on [[!SVG11]] elements.</p>
 <p>The web developer conformance and user agent implementation requirements for ARIA in SVG2 are defined in section <a href="https://svgwg.org/svg2-draft/single-page.html#struct-WAIARIAAttributes">5.10. WAI-ARIA attributes</a> of the [[SVG2]] specification.</p>
 <p>The user agent implementation requirements for mapping of SVG features to accessibility APIs are defined in section <a href="http://rawgit.com/w3c/aria/master/svg-aam/svg-aam.html">SVG2 Accessibility API Mappings</a> specification.</p>
