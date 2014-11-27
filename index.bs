@@ -8,7 +8,7 @@ Abstract: This specification defines the web developer (author) rules (conforman
 <div class="advisement">
 <p>This specification <strong>only defines</strong> web developer conformance requirements. i.e. which [[!wai-aria]] roles, states and properties a web developer may use on [[!SVG11]] elements.</p>
 <p>The web developer conformance and user agent implementation requirements for ARIA in SVG2 are defined in section <a href="https://svgwg.org/svg2-draft/single-page.html#struct-WAIARIAAttributes">5.10. WAI-ARIA attributes</a> of the [[SVG2]] specification.</p>
-<p>The user agent implementation requirements for mapping of SVG features to accessibility APIs are defined in section <a href="http://rawgit.com/w3c/aria/master/svg-aam/svg-aam.html">SVG2 Accessibility API Mappings</a> specification.</p>
+<p>The user agent implementation requirements for mapping of SVG features to accessibility APIs are defined in the <a href="http://rawgit.com/w3c/aria/master/svg-aam/svg-aam.html">SVG2 Accessibility API Mappings</a> specification.</p>
 </div>
 <h2 id="rules-wd">Rules of ARIA use in SVG1.1 for web developers</h2>
 	<p>The following table defines the implicit native semantics and corresponding default <a href="http://www.w3.org/TR/wai-aria/host_languages#implicit_semantics">implicit ARIA semantics</a> that apply to <a href="http://www.w3.org/TR/SVG/eltindex.html">SVG 1.1 elements</a>. Each language feature (element) in a cell in the first   column implies the ARIA semantics (role, states, and/or properties) given in the cell in the second column of the same row. The third  column defines restrictions as to what WAI-ARIA semantic (role, state, or property) may or may not apply. </p>
