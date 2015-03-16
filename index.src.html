@@ -68,16 +68,17 @@ p.note, div.note {
 <body>
 
 
-<h1>Web developer rules for use of ARIA attributes on SVG1.1 elements</h1>
-
 <section id="abstract">This specification defines the web developer (author) rules (conformance requirements) for the use of [[!wai-aria]] attributes on [[!SVG11]] elements. It also defines the requirements for Conformance Checking tools.
 </section>
+<section>
 <h2>User agent implementation note</h2>
 <div class="advisement">
-<p>This specification <strong>only defines</strong> web developer conformance requirements. i.e. which [[!wai-aria]] roles, states and properties a web developer may use on [[!SVG11]] elements.</p>
+<p>This specification <strong>only defines</strong> web developer conformance requirements. i.e. which [[!ARIA]] roles, states and properties a web developer may use on [[!SVG11]] elements.</p>
 <p>The web developer conformance and user agent implementation requirements for ARIA in SVG2 are defined in section <a href="https://svgwg.org/svg2-draft/single-page.html#struct-WAIARIAAttributes">5.10. WAI-ARIA attributes</a> of the [[SVG2]] specification.</p>
 <p>The user agent implementation requirements for mapping of SVG features to accessibility APIs are defined in the <a href="http://rawgit.com/w3c/aria/master/svg-aam/svg-aam.html">SVG2 Accessibility API Mappings</a> specification.</p>
 </div>
+</section>
+<section>
 <h2 id="rules-wd">Rules of ARIA use in SVG1.1 for web developers</h2>
 	<p>The following table defines the implicit native semantics and corresponding default <a href="http://www.w3.org/TR/wai-aria/host_languages#implicit_semantics">implicit ARIA semantics</a> that apply to <a href="http://www.w3.org/TR/SVG/eltindex.html">SVG 1.1 elements</a>. Each language feature (element) in a cell in the first   column implies the ARIA semantics (role, states, and/or properties) given in the cell in the second column of the same row. The third  column defines restrictions as to what WAI-ARIA semantic (role, state, or property) may or may not apply. </p>
 	<p>Documents must not use any <a href="http://www.w3.org/TR/wai-aria-1.1/#dfn-role">role</a> values with elements in the following table other than those listed  for that element in the second column unless allowed by the restrictions defined in the third column.</p>
@@ -165,7 +166,7 @@ p.note, div.note {
 		</tr>
 		<tr>
 		  <td>&lsquo;<a href="http://www.w3.org/TR/SVG/shapes.html#EllipseElement">ellipse</a>&rsquo;</td>
-		  <td>none</td>
+		  <td><code>none</code> role provided no associated <a>'title'</a> element, <a>'desc'</a> element, <a>'aria-label'</a> attribute, <a>'aria-labelledby'</a> attribute, or <a>'aria-describedby'</a> attribute; otherwise, <code>group</code> role</td>
 		  <td>no restrictions</td>
 		</tr>
 		<tr>
@@ -490,5 +491,6 @@ p.note, div.note {
 		</tr>
 	  </tbody>
 	</table>
+    </section>
     </body>
     </html>
